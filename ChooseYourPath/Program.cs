@@ -1,9 +1,8 @@
 ﻿using System;
-
 using System.IO;
-
 using System.Text.RegularExpressions;
-
+using System.Linq;
+using System.Globalization;
 
 namespace ChooseYourPath
 {
@@ -11,7 +10,7 @@ namespace ChooseYourPath
     {
         private static string? userName;
         private static string? userEmail;
-        private static object? txtEmail;
+        private static string email;
 
         public static void Main(string[] args)
         {
@@ -24,20 +23,20 @@ namespace ChooseYourPath
             Console.WriteLine("Please enter your email address:");
 
             userEmail = Console.ReadLine();
+            {
 
-            Regex regex = new Regex(@"^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$");
-            bool isValid = regex.IsMatch(txtEmail.Text.Trim());
-               if (!isValid)
-               {
-                   Console.WriteLine("Invalid Email.");
-               }
-            
-
-            Console.WriteLine("Thank you. Your name is " + userName + " and your email is "
-                + userEmail + ". Enjoy your visit.");
-
-            
+                if (RegexEmail.RegexEmailValid.IsValidEmail(email, userEmail) != true)
+                {
+                    Console.WriteLine("Please enter a valid email.");
+                    userEmail = Console.ReadLine();
+                }
+                else
+                {
+                    Console.WriteLine("Thank you. Your name is " + userName + " and your email is "
+                        + userEmail + ". Enjoy your visit.");
+                }
+            }
         }
-        
+
     }
 }
