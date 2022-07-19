@@ -19,7 +19,6 @@ namespace ChooseYourPath
         public static void Main(string[] args)
         {
 
-            Console.BackgroundColor = ConsoleColor.Black;
             Console.Clear();
             string TitleText = "";
             TitleText = @"
@@ -50,8 +49,7 @@ namespace ChooseYourPath
 
                                                    
                Code by OrenjiId3s
-             Story by Calliope Woods                    
-               (press enter to play)               
+             Story by Calliope Woods                                  
 ";
             Console.Title = "Hill Cavern Fair";
             Write(TitleText);
@@ -65,7 +63,7 @@ namespace ChooseYourPath
         static void Write(string message)
         {
             Console.BackgroundColor = ConsoleColor.Black;
-            Console.ForegroundColor = ConsoleColor.DarkRed;
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
             Console.WriteLine(message);
             Console.ResetColor();
         
@@ -80,7 +78,7 @@ namespace ChooseYourPath
             UserEmail = Console.ReadLine();
             {
 
-                if (RegexEmail.RegexEmailValid.IsValidEmail(Email, UserEmail) != true)
+                if (RegexEmail.RegexEmail.Validate(email, UserEmail) != true)
                 {
                     Console.WriteLine("Please enter a valid email.");
                     UserEmail = Console.ReadLine();
@@ -97,6 +95,14 @@ namespace ChooseYourPath
             Console.WriteLine("Display Runtime");
             Console.WriteLine("Export Path");
             Console.WriteLine("Exit");
+
+            Console.WriteLine("Press Enter to Continue.");
+
+            Console.ReadLine();
+
+            Console.Clear();
+
+
         }
 
         
