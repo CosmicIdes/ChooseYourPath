@@ -1,14 +1,19 @@
 ﻿using System;
 namespace ChooseYourPath
 {
-    public class Menu
+
+    public static class MainMenu
     {
-        public Menu()
+        public static void Menu()
         {
-            Console.WriteLine(
-                ""
-                );
+
+            Console.WriteLine("Display Name");
+            Console.WriteLine("Display Email");
+            Console.WriteLine("Display Runtime");
+            Console.WriteLine("Export Path");
+            Console.WriteLine("Exit");
         }
     }
+
 }
 

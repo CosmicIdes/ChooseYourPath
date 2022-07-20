@@ -1,112 +1,15 @@
-﻿using System;
-namespace ChooseYourPath
+﻿namespace ChooseYourPath
 {
     public static class Game
-
     {
-        public static void StartGame()
-        { }
+        static bool Run = true;
+        static int Choice;
+        static bool Goal = false;
+        static int Scenarios = 2;
+        static List<string> Inventory = new List<string>();
 
-
-        private static string? userName;
-        private static string? userEmail;
-        private static string email = "test@test.com";
-
-        public static string? UserName { get => userName; set => userName = value; }
-        public static string? UserEmail { get => userEmail; set => userEmail = value; }
-        public static string Email { get => email; set => email = value; }
-
-        public static void Main(string[] args)
-        {
-
-            Console.Clear();
-            string TitleText = "";
-            TitleText = @"
-                #     #                 
-                #     # # #      #      
-                #     # # #      #      
-                ####### # #      #      
-                #     # # #      #      
-                #     # # #      #      
-                #     # # ###### ###### 
-                        
-         #####                                     
-        #     #   ##   #    # ###### #####  #    # 
-        #        #  #  #    # #      #    # ##   # 
-        #       #    # #    # #####  #    # # #  # 
-        #       ###### #    # #      #####  #  # # 
-        #     # #    #  #  #  #      #   #  #   ## 
-         #####  #    #   ##   ###### #    # #    # 
-                                           
-                #######                 
-                #         ##   # #####  
-                #        #  #  # #    # 
-                #####   #    # # #    # 
-                #       ###### # #####  
-                #       #    # # #   #  
-                #       #    # # #    # 
-
-
-                                                   
-               Code by OrenjiId3s
-             Story by Calliope Woods                                  
-";
-            Console.Title = "Hill Cavern Fair";
-            Write(TitleText);
-
-            Console.ReadKey();
-            Console.Clear();
-            Console.WriteLine("[Game would be here]");
-            Console.ReadKey();
-        }
-
-        static void Write(string message)
-        {
-            Console.BackgroundColor = ConsoleColor.Black;
-            Console.ForegroundColor = ConsoleColor.DarkYellow;
-            Console.WriteLine(message);
-            Console.ResetColor();
-        
-            Console.WriteLine("Hello! Welcome to Hill Cavern Fair.");
-
-            Console.WriteLine("Please enter your name:");
-
-            UserName = Console.ReadLine();
-
-            Console.WriteLine("Please enter your email address:");
-
-            UserEmail = Console.ReadLine();
-            {
-
-                if (RegexEmail.RegexEmail.Validate(email, UserEmail) != true)
-                {
-                    Console.WriteLine("Please enter a valid email.");
-                    UserEmail = Console.ReadLine();
-                }
-                else
-                {
-                    Console.WriteLine("Thank you. Your name is " + UserName + " and your email is "
-                        + UserEmail + ". Enjoy your visit.");
-                }
-            }
-            Console.WriteLine("At any time, you can enter from these options:");
-            Console.WriteLine("Display Name");
-            Console.WriteLine("Display Email");
-            Console.WriteLine("Display Runtime");
-            Console.WriteLine("Export Path");
-            Console.WriteLine("Exit");
-
-            Console.WriteLine("Press Enter to Continue.");
-
-            Console.ReadLine();
-
-            Console.Clear();
-
-
-        }
-
-        
         
     }
+    
 }
 
