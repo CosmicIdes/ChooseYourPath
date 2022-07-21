@@ -75,7 +75,7 @@ namespace ChooseYourPath
             Console.WriteLine(message);
             Console.ResetColor();
 
-            Console.WriteLine("Hello! Welcome to Hill Cavern Fair.");
+            Console.WriteLine("Hello! Welcome to Hill Cavern Fair. This is best viewed in full screen mode.");
 
             Console.WriteLine("Please enter your name:");
 
@@ -98,21 +98,11 @@ namespace ChooseYourPath
                     UserEmail = Console.ReadLine();
                 }
             }
-            Console.WriteLine("At any time, you can enter from these options:");
-            Console.WriteLine("Display Name");
-            Console.WriteLine("Display Email");
-            Console.WriteLine("Display Runtime");
-            Console.WriteLine("Export Path");
-            Console.WriteLine("Exit");
-            Console.WriteLine("Choose an option or press Enter to continue");
 
-            Console.ReadLine();
-
-            Console.Clear();
+            MainMenu.Menu();
 
 
 
-        
 
 
 
