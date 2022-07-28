@@ -6,7 +6,7 @@ namespace ChooseYourPath
     {
         public static void Menu()
         {
-
+            GameLog.GameLogger();
             int opt;
 
             while (true)
@@ -16,7 +16,7 @@ namespace ChooseYourPath
                 Console.Write(" 1)- Display Name");
                 Console.Write(" 2)- Display Email");
                 Console.Write(" 3)- Display Runtime");
-                Console.Write(" 4)- Export Path");
+                Console.Write(" 4)- Path");
                 Console.Write(" 5)- Exit");
                 Console.Write("  -Choose an option or press 6 then hit Enter to continue. ");
 
@@ -34,11 +34,12 @@ namespace ChooseYourPath
                         break;
 
                     case 3:
-                        Console.Write("Your runtime is " + ".");
+                        Console.Write("Your runtime is " + Runtime.CurrentRuntime/1000 + " seconds.");
                         break;
 
                     case 4:
-                        Console.WriteLine("Your path is being exported.");
+                        GameLog.GameLogger();
+                        Console.WriteLine("Your path is located in the bin folder!");
                         break;
 
                     case 5:

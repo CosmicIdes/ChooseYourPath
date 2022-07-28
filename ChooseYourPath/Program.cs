@@ -10,14 +10,6 @@ namespace ChooseYourPath
 {
     public class Program
     {
-        public static void GameLog()
-        {
-            StreamWriter logFile = File.CreateText("gamechoices.log");
-            Trace.Listeners.Add(new TextWriterTraceListener(logFile));
-            Trace.AutoFlush = true;
-            Trace.WriteLine("Starting Game Log");
-            Trace.WriteLine(String.Format("Started {0}", System.DateTime.Now.ToString()));
-        }
 
         private static string? userName;
         private static string? userEmail;
@@ -67,7 +59,7 @@ namespace ChooseYourPath
             Console.WriteLine("[Game would be here]");
             Console.ReadKey();
         }
-
+        
         static void Write(string message)
         {
             Console.BackgroundColor = ConsoleColor.Black;

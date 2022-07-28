@@ -14,11 +14,12 @@ namespace ChooseYourPath
 
         public static void GameStart()
         {
+            GameLog.GameLogger();
             String line;
 
             try
             {
-                StreamReader sr = new StreamReader(@"Intro.txt");
+                StreamReader sr = new StreamReader(@"../../../Story/Intro.txt");
                 line = sr.ReadLine();
                 while (line != null)
                 {
@@ -28,49 +29,54 @@ namespace ChooseYourPath
                     line = sr.ReadLine();
                 }
                 sr.Close();
-                Console.ReadLine();
             }
             catch (Exception e)
             {
                 Console.WriteLine("Exception: " + e.Message);
             }
-            finally
-            {
-                Console.WriteLine("Executing finally block.");
-            }
+
+            
+            //Intro First Choice
 
             IntroChoice = Console.ReadLine();
 
+            using StreamWriter sw = File.AppendText(@"gamelogger.txt");
+            {
+                sw.WriteLine(IntroChoice);
+            }
+
             if (IntroChoice == "loss")
             {
-                StreamReader sr = new StreamReader(@"IntroChoiceLoss.txt");
-                line = sr.ReadLine();
+                StreamReader sl = new StreamReader(@"../../../Story/IntroChoiceLoss.txt");
+                line = sl.ReadLine();
                 while (line != null)
                 {
-
                     Console.WriteLine(line);
-
-                    line = sr.ReadLine();
+                    line = sl.ReadLine();
                 }
-                sr.Close();
-                Console.ReadLine();
+                sl.Close();
+                
             }
 
-            else _ = IntroChoice == "dread";
-            {
-                StreamReader sr = new StreamReader(@"IntroChoiceDread.txt");
-                line = sr.ReadLine();
-                while (line != null)
+            else
                 {
-
-                    Console.WriteLine(line);
-
-                    line = sr.ReadLine();
+                    StreamReader sd = new StreamReader(@"../../../Story/IntroChoiceDread.txt");
+                    line = sd.ReadLine();
+                    while (line != null)
+                    {
+                        Console.WriteLine(line);
+                        line = sd.ReadLine();
+                    }
+                    sd.Close();
                 }
-                sr.Close();
-                Console.ReadLine();
             }
+        
 
+
+
+            //Map
+
+            
         }
 
 
@@ -78,5 +84,5 @@ namespace ChooseYourPath
         
     }
     
-}
+
 
