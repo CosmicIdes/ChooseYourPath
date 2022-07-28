@@ -53,11 +53,6 @@ namespace ChooseYourPath
 ";
             Console.Title = "Hill Cavern Fair";
             Write(TitleText);
-
-            Console.ReadKey();
-            Console.Clear();
-            Console.WriteLine("[Game would be here]");
-            Console.ReadKey();
         }
         
         static void Write(string message)
@@ -90,13 +85,8 @@ namespace ChooseYourPath
                     UserEmail = Console.ReadLine();
                 }
             }
-
             MainMenu.Menu();
-
-
-
-
-
+            Game.GameStart();
 
     }
 
