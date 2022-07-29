@@ -1,0 +1,4 @@
+﻿
+Continuing the old west theme, you find yourself looking at the inside of a jail cell. A mannequin dressed as a sheriff stands on the other side of the bars looking in at you and the single mannequin sitting on the dirt floor inside. 
+
+Type “continue” to let your boat float on to the next scene, type “get out” to climb out of the boat and into the scene.

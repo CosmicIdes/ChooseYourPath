@@ -1,19 +1,15 @@
-﻿using System.IO;
-using System.Text;
-using System.Collections.Generic;
-
-namespace ChooseYourPath
+﻿namespace ChooseYourPath
 {
     public static class Game
-    { 
-        static List<string> Inventory = new List<string>();
+    {
+        public static List<string> Inventory = new List<string>();
         private static string? IntroChoice;
         private static string? line;
         private static string? opt;
 
         public static void GameStart()
         {
-            
+
             String line;
 
             try
@@ -34,7 +30,7 @@ namespace ChooseYourPath
                 Console.WriteLine("Exception: " + e.Message);
             }
 
-            
+
             //Intro First Choice
 
             IntroChoice = Console.ReadLine();
@@ -54,31 +50,32 @@ namespace ChooseYourPath
                     line = sl.ReadLine();
                 }
                 sl.Close();
-                
+                MainMenu.Menu();
+
             }
 
             else if (IntroChoice == "dread")
+            {
+                StreamReader sd = new StreamReader(@"../../../Story/IntroChoiceDread.txt");
+                line = sd.ReadLine();
+                while (line != null)
                 {
-                    StreamReader sd = new StreamReader(@"../../../Story/IntroChoiceDread.txt");
+                    Console.WriteLine(line);
                     line = sd.ReadLine();
-                    while (line != null)
-                    {
-                        Console.WriteLine(line);
-                        line = sd.ReadLine();
-                    }
-                    sd.Close();
-                    Inventory.Add("Park Map");
-                    Inventory.Add("Hill Cavern Fair Ticket");
                 }
-            ParkMap();
+                sd.Close();
+                Inventory.Add("Park Map");
+                Inventory.Add("Hill Cavern Fair Ticket");
             }
+            ParkMap();
+        }
 
-        
+
 
 
         //Map
         public static void ParkMap()
-       
+
         {
 
             while (true)
@@ -186,7 +183,7 @@ namespace ChooseYourPath
                         sg.Close();
                         string? StageChoice = Console.ReadLine();
                         if (StageChoice == "yes")
-                            {
+                        {
                             StreamReader sgy = new StreamReader(@"../../../Story/GrandStageYes.txt");
                             line = sgy.ReadLine();
                             while (line != null)
@@ -251,6 +248,7 @@ namespace ChooseYourPath
                                     line = szcy.ReadLine();
                                 }
                                 szcy.Close();
+                                GameEnd.GameEndOptions();
                             }
                         }
                         else if (ZooChoice == "yes" && Inventory.Contains("caramel corn") == false)
@@ -263,6 +261,7 @@ namespace ChooseYourPath
                                 line = szcy.ReadLine();
                             }
                             szcy.Close();
+                            GameEnd.GameEndOptions();
                         }
                         else if (ZooChoice == "no")
                         {
@@ -292,6 +291,7 @@ namespace ChooseYourPath
                                 line = shy.ReadLine();
                             }
                             shy.Close();
+                            ParkMap();
                         }
                         else if (HauntedChoice == "no")
                         {
@@ -303,65 +303,25 @@ namespace ChooseYourPath
 
                     case "ye old mill":
                         Console.Clear();
-                        StreamReader so = new StreamReader(@"../../../Story/OldMillIntro.txt");
-                        line = so.ReadLine();
-                        while (line != null)
-                        {
-                            Console.WriteLine(line);
-                            line = so.ReadLine();
-                        }
-                        so.Close();
-                        string? MillChoice = Console.ReadLine();
-                        if (MillChoice == "yes")
-                        {
-                            StreamReader shy = new StreamReader(@"../../../Story/OldMillYes.txt");
-                            line = shy.ReadLine();
-                            while (line != null)
-                            {
-                                Console.WriteLine(line);
-                                line = shy.ReadLine();
-                            }
-                            shy.Close();
-                            string? MillRideChoice = Console.ReadLine();
-                            if (MillRideChoice == "ride")
-                            {
-                                StreamReader smy = new StreamReader(@"../../../Story/OldMillYes.txt");
-                                line = smy.ReadLine();
-                                while (line != null)
-                                {
-                                    Console.WriteLine(line);
-                                    line = smy.ReadLine();
-                                }
-                                smy.Close();
+                        OldMill.OldMillRide();
 
-                            }
-                            else if (MillRideChoice == "park map")
-                            {
-                                ParkMap();
-                            }
-                        }
-                        else if (MillChoice == "no")
-                        {
-                            Console.WriteLine("You must return here eventually, but perhaps now isn’t the time.");
-                            ParkMap();
-                        }
-
-                        break;
+                    break;
 
                     default:
-                        ParkMap();
-                        break;
+                    ParkMap();
+                    break;
                 }
-            }
+                        }
         }
 
 
-    }
+            }
 
 
 
-        
-    }
+
+        }
     
+
 
 

@@ -1,0 +1,15 @@
+﻿
+The boat reaches a dead end. There are no more scenes, only a black wall in front of you and a door to your right. 
+
+You have no choice but to climb out and go through the door. 
+
+The sun shines brightly as you walk out onto the gravel. You’re at the entrance to Hill Cavern Fair, and a young man in a bright yellow polo shirt grins and waves at you. On his chest is a name tag that reads “Gene.”
+
+“Where’ve you been, Ray? I haven’t seen anyone yet!”
+
+You smile and pat your brother’s shoulder. “No need to be so anxious, Gene. It’s our first day. We’ve got lots of days ahead of us. If the tourists don’t come today, there’s tomorrow, and the day after that.”
+
+Gene nods, always attentive to your advice. “You’re right, of course, I just really want our opening day to be grand.”
+
+“It can be grand with just the two of us,” you promise, leading the way into your park.
+END

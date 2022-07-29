@@ -2,9 +2,6 @@
     * Coding: OrenjiId3s (https://github.com/OrenjiId3s/ChooseYourPath)
     * Story: Calliope Woods (http://www.calliopewoods.com/)*/
 
-using System.Diagnostics;
-using System.IO;
-
 namespace ChooseYourPath
 
 {

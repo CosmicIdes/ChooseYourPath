@@ -1,5 +1,4 @@
-﻿using System;
-namespace ChooseYourPath
+﻿namespace ChooseYourPath
 {
 
     public static class MainMenu
@@ -11,13 +10,11 @@ namespace ChooseYourPath
             do
 
             {
-                Console.Write(" At any time, you can use these options:");
                 Console.Write(" 1)- Display Name");
                 Console.Write(" 2)- Display Email");
                 Console.Write(" 3)- Display Runtime");
-                Console.Write(" 4)- Path");
-                Console.Write(" 5)- Exit");
-                Console.Write("  -Choose an option or press 6 then hit Enter to continue. ");
+                Console.Write(" 4)- Exit");
+                Console.Write("  -Choose an option or press 5 then hit Enter to continue to the game. ");
 
 
 
@@ -37,14 +34,10 @@ namespace ChooseYourPath
                         break;
 
                     case 4:
-                        Console.WriteLine("Your path is located in the bin folder!");
-                        break;
-
-                    case 5:
                         Environment.Exit(5);
                         break;
 
-                    case 6:
+                    case 5:
                         Console.Clear();
                         Game.GameStart();
                         break;
