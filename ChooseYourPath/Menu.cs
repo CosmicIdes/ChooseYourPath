@@ -6,10 +6,9 @@ namespace ChooseYourPath
     {
         public static void Menu()
         {
-            GameLog.GameLogger();
             int opt;
 
-            while (true)
+            do
 
             {
                 Console.Write(" At any time, you can use these options:");
@@ -34,11 +33,10 @@ namespace ChooseYourPath
                         break;
 
                     case 3:
-                        Console.Write("Your runtime is " + Runtime.CurrentRuntime/1000 + " seconds.");
+                        Console.Write("Your runtime is " + Runtime.CurrentRuntime / 1000 + " seconds.");
                         break;
 
                     case 4:
-                        GameLog.GameLogger();
                         Console.WriteLine("Your path is located in the bin folder!");
                         break;
 
@@ -55,7 +53,7 @@ namespace ChooseYourPath
                         Console.Clear();
                         break;
                 }
-            }
+            } while (true);
         }
     }
 

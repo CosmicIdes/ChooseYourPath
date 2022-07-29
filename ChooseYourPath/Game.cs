@@ -85,12 +85,10 @@ namespace ChooseYourPath
 
             {
                 Console.Write("\r\nThe park map is as old and faded as everything else you’ve encountered. It lists several attractions:");
-                Console.Write(" \r\nTrain Ride");
                 Console.Write(" \r\nSnack Stand");
                 Console.Write(" \r\nThe Grand Stage");
-                Console.Write(" \r\nHill Cavern Petting Zoo");
+                Console.Write(" \r\nPetting Zoo");
                 Console.Write(" \r\nHaunted House");
-                Console.Write(" \r\nMerry-Go-Round");
                 Console.Write(" \r\nYe Old Mill");
                 Console.Write(" \r\nWhere would you like to go? ");
 
@@ -100,18 +98,8 @@ namespace ChooseYourPath
                 switch (opt.ToLower())
 
                 {
-                    case "train ride":
-                        StreamReader sr = new StreamReader(@"../../../Story/IntroChoiceLoss.txt");
-                        line = sr.ReadLine();
-                        while (line != null)
-                        {
-                            Console.WriteLine(line);
-                            line = sr.ReadLine();
-                        }
-                        sr.Close();
-                        break;
-
                     case "snack stand":
+                        Console.Clear();
                         StreamReader ss = new StreamReader(@"../../../Story/SnackStandMain.txt");
                         line = ss.ReadLine();
                         while (line != null)
@@ -135,6 +123,7 @@ namespace ChooseYourPath
                             {
                                 Inventory.Add("caramel corn");
                                 Console.WriteLine("\r\nIt really only cost 25 cents. The box is dusty and cobwebby, but the caramel corn inside smells good, and when you eat some it’s satisfying, with a sweet crunch. You carry the box with you throughout the rest of the park. ");
+                                ParkMap();
                             }
                             else
                             {
@@ -149,10 +138,13 @@ namespace ChooseYourPath
                             Console.WriteLine("\r\nDo you want to order a slushee? ");
                             string? Slushee = Console.ReadLine();
                             if (Slushee == "yes")
-                                Console.WriteLine("It really was only 30 cents, but you have a feeling if you drank more than your initial sip your medical bills would be much more expensive. It tastes exactly like wet laundry forgotten in a washing machine smells. You throw the cup away as soon as you leave the snack stand. ");
+                            {
+                                Console.WriteLine("It really was only 30 cents, but you have a feeling if you drank more than your initial sip your medical bills would be much more expensive. It tastes exactly like wet laundry forgotten in a washing machine smells. You throw the cup away as soon as you leave the snack stand. \r\n");
+                                ParkMap();
+                            }
                             else
                             {
-                                Console.WriteLine("A good choice, really.");
+                                Console.WriteLine("A good choice, really.\r\n");
                                 goto case "snack stand";
                             }
                         }
@@ -164,6 +156,7 @@ namespace ChooseYourPath
                             string? CottonCandy = Console.ReadLine();
                             if (CottonCandy == "yes")
                             {
+                                Inventory.Add("cotton candy");
                                 StreamReader scy = new StreamReader(@"../../../Story/SnackStandCottonCandy.txt");
                                 line = scy.ReadLine();
                                 while (line != null)
@@ -182,7 +175,8 @@ namespace ChooseYourPath
                         break;
 
                     case "the grand stage":
-                        StreamReader sg = new StreamReader(@"../../../Story/IntroChoiceLoss.txt");
+                        Console.Clear();
+                        StreamReader sg = new StreamReader(@"../../../Story/GrandStageMain.txt");
                         line = sg.ReadLine();
                         while (line != null)
                         {
@@ -190,10 +184,30 @@ namespace ChooseYourPath
                             line = sg.ReadLine();
                         }
                         sg.Close();
+                        string? StageChoice = Console.ReadLine();
+                        if (StageChoice == "yes")
+                            {
+                            StreamReader sgy = new StreamReader(@"../../../Story/GrandStageYes.txt");
+                            line = sgy.ReadLine();
+                            while (line != null)
+                            {
+                                Console.WriteLine(line);
+                                line = sgy.ReadLine();
+                            }
+                            sgy.Close();
+                            ParkMap();
+                        }
+                        else if (StageChoice == "no")
+                        {
+                            Console.WriteLine("Nothing that happens in this place could be good. You turn away and head back to the main path.");
+                            ParkMap();
+                        }
+
                         break;
 
-                    case "hill cavern petting zoo":
-                        StreamReader sz = new StreamReader(@"../../../Story/IntroChoiceLoss.txt");
+                    case "petting zoo":
+                        Console.Clear();
+                        StreamReader sz = new StreamReader(@"../../../Story/PettingZooIntro.txt");
                         line = sz.ReadLine();
                         while (line != null)
                         {
@@ -201,10 +215,65 @@ namespace ChooseYourPath
                             line = sz.ReadLine();
                         }
                         sz.Close();
+                        string? ZooChoice = Console.ReadLine();
+                        if (ZooChoice == "yes" && Inventory.Contains("caramel corn") == true)
+                        {
+                            StreamReader sgy = new StreamReader(@"../../../Story/PettingZooYesCaramelCorn.txt");
+                            line = sgy.ReadLine();
+                            while (line != null)
+                            {
+                                Console.WriteLine(line);
+                                line = sgy.ReadLine();
+                            }
+                            sgy.Close();
+                            string? FawnChoice = Console.ReadLine();
+                            if (FawnChoice == "yes")
+                            {
+                                StreamReader szcy = new StreamReader(@"../../../Story/PettingZooYesCCYes.txt");
+                                line = szcy.ReadLine();
+                                while (line != null)
+                                {
+                                    Console.WriteLine(line);
+                                    line = szcy.ReadLine();
+                                }
+                                szcy.Close();
+                                Inventory.Remove("caramel corn");
+                                Inventory.Add("Gift from the Deer God");
+                                ParkMap();
+                            }
+                            else if (FawnChoice == "no")
+                            {
+                                StreamReader szcy = new StreamReader(@"../../../Story/PettingZooYesCCNo.txt");
+                                line = szcy.ReadLine();
+                                while (line != null)
+                                {
+                                    Console.WriteLine(line);
+                                    line = szcy.ReadLine();
+                                }
+                                szcy.Close();
+                            }
+                        }
+                        else if (ZooChoice == "yes" && Inventory.Contains("caramel corn") == false)
+                        {
+                            StreamReader szcy = new StreamReader(@"../../../Story/PettingZooYesNoCC.txt");
+                            line = szcy.ReadLine();
+                            while (line != null)
+                            {
+                                Console.WriteLine(line);
+                                line = szcy.ReadLine();
+                            }
+                            szcy.Close();
+                        }
+                        else if (ZooChoice == "no")
+                        {
+                            Console.WriteLine("You’ve made a good decision for now, though something tells you that you should return with something worthwhile. ");
+                            ParkMap();
+                        }
                         break;
 
                     case "haunted house":
-                        StreamReader sh = new StreamReader(@"../../../Story/IntroChoiceLoss.txt");
+                        Console.Clear();
+                        StreamReader sh = new StreamReader(@"../../../Story/HauntedHouseMain.txt");
                         line = sh.ReadLine();
                         while (line != null)
                         {
@@ -212,20 +281,29 @@ namespace ChooseYourPath
                             line = sh.ReadLine();
                         }
                         sh.Close();
+                        string? HauntedChoice = Console.ReadLine();
+                        if (HauntedChoice == "yes")
+                        {
+                            StreamReader shy = new StreamReader(@"../../../Story/HauntedHouseYes.txt");
+                            line = shy.ReadLine();
+                            while (line != null)
+                            {
+                                Console.WriteLine(line);
+                                line = shy.ReadLine();
+                            }
+                            shy.Close();
+                        }
+                        else if (HauntedChoice == "no")
+                        {
+                            Console.WriteLine("What a shame. It seemed like it would be fun.");
+                            ParkMap();
+                        }
+
                         break;
 
-                    case "merry-go-round":
-                        StreamReader sm = new StreamReader(@"../../../Story/IntroChoiceLoss.txt");
-                        line = sm.ReadLine();
-                        while (line != null)
-                        {
-                            Console.WriteLine(line);
-                            line = sm.ReadLine();
-                        }
-                        sm.Close();
-                        break;
                     case "ye old mill":
-                        StreamReader so = new StreamReader(@"../../../Story/IntroChoiceLoss.txt");
+                        Console.Clear();
+                        StreamReader so = new StreamReader(@"../../../Story/OldMillIntro.txt");
                         line = so.ReadLine();
                         while (line != null)
                         {
@@ -233,6 +311,41 @@ namespace ChooseYourPath
                             line = so.ReadLine();
                         }
                         so.Close();
+                        string? MillChoice = Console.ReadLine();
+                        if (MillChoice == "yes")
+                        {
+                            StreamReader shy = new StreamReader(@"../../../Story/OldMillYes.txt");
+                            line = shy.ReadLine();
+                            while (line != null)
+                            {
+                                Console.WriteLine(line);
+                                line = shy.ReadLine();
+                            }
+                            shy.Close();
+                            string? MillRideChoice = Console.ReadLine();
+                            if (MillRideChoice == "ride")
+                            {
+                                StreamReader smy = new StreamReader(@"../../../Story/OldMillYes.txt");
+                                line = smy.ReadLine();
+                                while (line != null)
+                                {
+                                    Console.WriteLine(line);
+                                    line = smy.ReadLine();
+                                }
+                                smy.Close();
+
+                            }
+                            else if (MillRideChoice == "park map")
+                            {
+                                ParkMap();
+                            }
+                        }
+                        else if (MillChoice == "no")
+                        {
+                            Console.WriteLine("You must return here eventually, but perhaps now isn’t the time.");
+                            ParkMap();
+                        }
+
                         break;
 
                     default:

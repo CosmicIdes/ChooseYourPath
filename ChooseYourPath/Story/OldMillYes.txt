@@ -1,0 +1,10 @@
+﻿
+It takes a moment for your eyes to adjust to the gloom inside, despite the rest of the park not being particularly bright. 
+
+The room is empty save for an extremely old man. He wears a faded polo shirt with a nametag that reads “Gene.” He looks tired, and greets you only with a slight wave of his hand. His sallow skin is the color of yellowed receipts. 
+
+He is standing by the stream, which is held in by a poured concrete floor. A small boat waits by him, its movement down the stream hampered by a bar that must be manually lifted to let it continue into the depths of the ride. 
+
+“I miss my brother,” Gene confides to you as you approach, his voice bearing all the weight of his years. “I’m so confused now. Ray always knew what to do. I feel like I’m just going in circles.” He gestures to the boat and sighs. “Climb in.”
+
+Type “Ride” to climb into the boat, or “Park Map” to select a different attraction.
