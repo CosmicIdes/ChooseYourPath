@@ -1,0 +1,6 @@
+﻿
+Gene somberly lifts the bar and your boat begins its journey down the stream. There is no safety bar on the boat, and the concrete floor is level with it. It would be very easy to stop the boat and get out at any time during this ride. 
+
+You pass through a short tunnel and are soon floating through an old west style saloon scene. A group of mannequins sit at a table playing a card game, one serving as bartender is busy pouring whiskey for a patron at the bar, and a particularly aged mannequin in a red dress stands atop a stage. A fuzzy recording of a woman singing “House of the Rising Sun” is playing over speakers you can’t see. 
+
+Type “continue” to let your boat float on to the next scene, type “get out” to climb out of the boat and into the scene.
